@@ -2,6 +2,12 @@ require 'sinatra'
 require 'yaml/store'
 
 #class Freedom_Board < Sinatra::Base
+    Choices = {
+        'HAM' => 'Hamburger',
+        'PIZ' => 'Pizza',
+        'CUR' => 'Curry',
+        'NOO' => 'Noodles',
+    }
     get '/' do
         @title = 'UPVTC Freedom Board!'
         erb :index
@@ -9,8 +15,7 @@ require 'yaml/store'
 
     post '/cast' do
         @title = 'Thanks for casting your vote!'
-        @message  = params['message']
-        @sender = params['sender']
+        @vote  = params['vote']
         @store = YAML::Store.new 'votes.yml'
         @store.transaction do
             @store['votes'] ||= {}
@@ -18,8 +23,8 @@ require 'yaml/store'
             @store['votes'][@vote] += 1
         end
         erb :cast
-
     end
+
     get '/results' do
         @title = 'Results so far:'
         @store = YAML::Store.new 'votes.yml'
