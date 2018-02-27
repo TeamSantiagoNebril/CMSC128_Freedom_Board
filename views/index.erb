@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+    <style>
+        .boxsizingBorder {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+    </style>
+  </head>
+  <body class='container-fluid' style = "text-align: center;">
+    <!--
+    <p>What's for dinner?</p>
+    <form action='cast' method='post'>
+      <ul class='unstyled'>
+        <% Choices.each do |id, text| %>
+          <li>
+            <label class='radio'>
+              <input type='radio' name='vote' value='<%= id %>' id='vote_<%= id %>' />
+              <%= text %>
+            </label>
+          </li>
+        <% end %>
+      </ul>
+      <button type='submit' class='btn btn-primary'>Cast this vote!</button>
+  </form>-->
+  <!--<div class = "container-fluid" style = "text-align: center">-->
+      <form action='cast' method='post'>
+        <div class="form-group">
+             <!-- <label for="message">Message</label>-->
+              <textarea class="form-control" name = "message" id="message" rows="5" cols="20" style = "resize:none;width:70%;"></textarea>
+          </div>
+        <div class="col-auto">
+            <input type = "text" name = "sender" placeholder="Anonymous">
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </div>
+      </form>
+  </body>
+</html>
