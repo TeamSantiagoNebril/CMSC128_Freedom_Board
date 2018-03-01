@@ -4,6 +4,7 @@ require 'yaml/store'
 #class Freedom_Board < Sinatra::Base
     get '/' do
         @title = 'UPVTC Freedom Board!'
+        
         erb :index
     end
 
@@ -11,7 +12,7 @@ require 'yaml/store'
         @title = 'Your message has been posted'
         @message_  = params['message']
         @sender = params['sender']
-        @sender = @sender + " at " + Time.new.strftime("%d/%m/%Y %l:%M:%S %p") 
+        @sender = @sender + " at " + Time.new.strftime("%d/%m/%Y %l:%M:%S %p")
         @store = YAML::Store.new 'messages.yml'
         @store.transaction do
             @store[@sender] = @message_

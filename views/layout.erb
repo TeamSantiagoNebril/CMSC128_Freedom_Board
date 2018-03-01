@@ -3,10 +3,11 @@
   <head>
     <meta charset='UTF-8' />
     <title>UP Freedom Board</title>
-    <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />-->
   </head>
-  <body class='container'>
-    <h1 style = "text-align: center;"><%= @title %></h1>
+  <body class='container' style = "text-align: center;">
+    <h1><%= @title %></h1>
     <%= yield %>
   </body>
 </html>
