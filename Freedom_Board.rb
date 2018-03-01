@@ -18,7 +18,7 @@ require 'yaml/store'
             @store[@sender] = @message_
         end
         erb :index
-<<<<<<< HEAD
+#<<<<<<< HEAD
     end
     post '/search' do
       @search = params['search']
@@ -26,8 +26,8 @@ require 'yaml/store'
         @search = ""
       end
       erb :index
-=======
->>>>>>> master
+#=======
+#>>>>>>> master
     end
 
 #end
