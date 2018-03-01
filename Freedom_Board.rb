@@ -8,10 +8,19 @@ require 'yaml/store'
         erb :index
     end
 
+    get '/cast' do
+        @title = 'UPVTC Freedom Board!'
+
+        erb :index
+    end
+
     post '/cast' do
         @title = 'UPVTC Freedom Board!'
         @message_  = params['message']
         @sender = params['sender']
+        if (@sender == "")
+          @sender = "Anonymous"
+        end
         @sender = @sender + " at " + Time.new.strftime("%d/%m/%Y %l:%M:%S %p")
         @store = YAML::Store.new 'messages.yml'
         @store.transaction do
