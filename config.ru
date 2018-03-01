@@ -1,2 +1,2 @@
-require 'Freedom_Board'
+require './Freedom_Board'
 run Sinatra::Application
