@@ -11,22 +11,7 @@
     </style>
   </head>
   <body class='container-fluid' style = "text-align: center;">
-    <!--
-    <p>What's for dinner?</p>
-    <form action='cast' method='post'>
-      <ul class='unstyled'>
-        <% Choices.each do |id, text| %>
-          <li>
-            <label class='radio'>
-              <input type='radio' name='vote' value='<%= id %>' id='vote_<%= id %>' />
-              <%= text %>
-            </label>
-          </li>
-        <% end %>
-      </ul>
-      <button type='submit' class='btn btn-primary'>Cast this vote!</button>
-  </form>-->
-  <!--<div class = "container-fluid" style = "text-align: center">-->
+
       <form action='cast' method='post'>
         <div class="form-group">
              <!-- <label for="message">Message</label>-->
@@ -36,6 +21,23 @@
             <input type = "text" name = "sender" placeholder="Anonymous">
             <button type="submit" class="btn btn-primary mb-2">Submit</button>
         </div>
+
       </form>
+
+      <form action='results' method='post'>
+        <div>
+          <input type = "text" name = "search" placeholder="Search...">
+          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </div>
+      </form>
+      <div>
+        <%message_file = YAML.load_file("messages.yml")%>
+          <% message_file.each do |id, text| %>
+            <tr>
+              <th><%= id%></th>:
+              <td><%= text%><br></td>
+            </tr>
+          <% end %>
+      </div>
   </body>
 </html>
