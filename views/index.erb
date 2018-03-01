@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+  <!--  <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />-->
     <style>
         .boxsizingBorder {
             -webkit-box-sizing: border-box;
@@ -11,35 +11,48 @@
     </style>
   </head>
   <body class='container-fluid' style = "text-align: center;">
-
       <form action='cast' method='post'>
-        <div class="form-group">
-             <!-- <label for="message">Message</label>-->
-              <textarea class="form-control" name = "message" id="message" rows="5" cols="20" style = "resize:none;width:70%;"></textarea>
-          </div>
+        <div class="form-group" style = "text-align: center;width:70%;margin-left:15%;">
+              <textarea class="form-control" placeholder = "Message" name = "message" id="message" rows="5" cols="20" style = "resize:none;"></textarea>
+        </div>
         <div class="col-auto">
             <input type = "text" name = "sender" placeholder="Anonymous">
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            <button type="submit" class="btn btn-primary mb-2">Post</button>
         </div>
-
       </form>
 
-      <form action='\search' method='post'>
-        <div>
+      <form action='results' method='post'>
+      </form>
+      <div class = "container-fluid rounded" style = "width:70%;border: 3px solid pink">
+        <br>
+        <div style = "text-align: right;">
           <input type = "text" name = "search" placeholder="Search...">
-          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          <button type="submit" class="btn btn-primary mb-2">Search</button>
         </div>
-      </form>
-      <div>
         <%message_file = YAML.load_file("messages.yml")%>
-          <% message_file.each do |id, text| %>
+        <% if (message_file != false) %>
+        <%message_file = message_file.reverse_each%>
+       <table style= "width: 100%">
+         <tr >
+           <th style="font-size: 20px">Sender</th>
+           <th style="font-size: 20px">Message</th><br>
+         </tr>
+         <% message_file.each do |id, text| %>
+         <%if @search == nil%>
+           <%@search = ""%>
+         <%end%>
+         <%if id.include?(@search)||text.include?(@search)%>
+         <tr>
+           <th style="text-align: Left"><%= id %></th>
+           <td style="text-align: Left"><%= text%></th><br>
+           </tr>
 
-            <tr>
-              <th><%= id%></th>:
-              <td><%= text%><br></td>
-            </tr>
+           <%end%>
+           <% end %>
 
-          <% end %>
+         </table>
+         <%end%>
+        <br>
       </div>
   </body>
 </html>
