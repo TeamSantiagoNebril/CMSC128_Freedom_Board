@@ -39,4 +39,13 @@ require 'yaml/store'
       erb :index
     end
 
+    get '/cast' do
+      @title = 'UPVTC Freedom Board!'
+    @search = params['search']
+    if(@search == nil)
+      @search = ""
+    end
+    erb :index
+    end
+
 #end
