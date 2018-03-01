@@ -4,7 +4,7 @@ require 'yaml/store'
 #class Freedom_Board < Sinatra::Base
     get '/' do
         @title = 'UPVTC Freedom Board!'
-        
+
         erb :index
     end
 
@@ -17,7 +17,7 @@ require 'yaml/store'
         @store.transaction do
             @store[@sender] = @message_
         end
-        erb :cast
+        erb :index
     end
 
 #end
