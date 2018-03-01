@@ -11,12 +11,19 @@ require 'yaml/store'
         @title = 'Your message has been posted'
         @message_  = params['message']
         @sender = params['sender']
-        @sender = @sender + " at " + Time.new.strftime("%d/%m/%Y %l:%M:%S %p") 
+        @sender = @sender + " at " + Time.new.strftime("%d/%m/%Y %l:%M:%S %p")
         @store = YAML::Store.new 'messages.yml'
         @store.transaction do
             @store[@sender] = @message_
         end
-        erb :cast
+        erb :index
+    end
+    post '/search' do
+      @search = params['search']
+      if(@search == nil)
+        @search = ""
+      end
+      erb :index
     end
 
 #end

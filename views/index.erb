@@ -24,7 +24,7 @@
 
       </form>
 
-      <form action='results' method='post'>
+      <form action='\search' method='post'>
         <div>
           <input type = "text" name = "search" placeholder="Search...">
           <button type="submit" class="btn btn-primary mb-2">Submit</button>
@@ -33,10 +33,12 @@
       <div>
         <%message_file = YAML.load_file("messages.yml")%>
           <% message_file.each do |id, text| %>
+
             <tr>
               <th><%= id%></th>:
               <td><%= text%><br></td>
             </tr>
+
           <% end %>
       </div>
   </body>
