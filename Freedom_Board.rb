@@ -4,8 +4,12 @@ require 'yaml/store'
 #class Freedom_Board < Sinatra::Base
     get '/' do
         @title = 'UPVTC Freedom Board!'
-
         erb :index
+    end
+
+    get '/cast' do
+      @title = 'UPVTC Freedom Board!'
+      erb :index
     end
 
     post '/cast' do
@@ -18,16 +22,14 @@ require 'yaml/store'
             @store[@sender] = @message_
         end
         erb :index
-#<<<<<<< HEAD
     end
+
     post '/search' do
       @search = params['search']
       if(@search == nil)
         @search = ""
       end
       erb :index
-#=======
-#>>>>>>> master
     end
 
 #end
