@@ -9,7 +9,7 @@ require 'yaml/store'
     end
 
     post '/cast' do
-        @title = 'Your message has been posted'
+        @title = 'UPVTC Freedom Board!'
         @message_  = params['message']
         @sender = params['sender']
         @sender = @sender + " at " + Time.new.strftime("%d/%m/%Y %l:%M:%S %p")
@@ -18,24 +18,16 @@ require 'yaml/store'
             @store[@sender] = @message_
         end
         erb :index
-<<<<<<< HEAD
-=======
-#<<<<<<< HEAD
->>>>>>> master
+
     end
 
     post '/search' do
+        @title = 'UPVTC Freedom Board!'
       @search = params['search']
       if(@search == nil)
         @search = ""
       end
       erb :index
-<<<<<<< HEAD
-
-=======
-#=======
-#>>>>>>> master
->>>>>>> master
     end
 
 #end
